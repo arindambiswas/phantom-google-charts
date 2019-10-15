@@ -13,11 +13,13 @@ page.onConsoleMessage = function (msg, lineNum, sourceId) {
 
 var chartData;
 
-page.open('chartData.json', function () {
+page.open('http://adminv4dev.productious.com/phantom-google-charts/chartData.json', function () {
 
     var jsonSource = page.plainText;
     chartData = JSON.parse(jsonSource);
-    console.log('json loaded', chartData.data);
+    console.log('json loaded', jsonSource);
+
+//phantom.exit();
 
     page.open('chart.html', function() {
 
@@ -63,6 +65,7 @@ page.open('chartData.json', function () {
         }, timeoutTime);
     
     });
+
 });
 
 
